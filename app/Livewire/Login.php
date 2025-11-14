@@ -4,15 +4,37 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use App\Models\User;
 
 class Login extends Component
 {
-     #[Title('Login')]
+    #[Title('Login')]
+
+    public string $email;
+    public string $password;
+
+    public function login()
+    {
+
+    }
+
     public function render()
     {
         return <<<'HTML'
-        <div>
-            <h1 class="text-2xl font-bold">Login Page</h1>
+        <div class="max-w-md mx-auto mt-10">
+            <form class="space-y-4" wire:submit="login">
+                <div class="mb-4">
+                    <label class="block mb-1" for="email">Email:</label>
+                    <input class="w-full border border-gray-300 rounded px-3 py-2" type="email" id="email" wire:model="email" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-1" for="password">Password:</label>
+                    <input class="w-full border border-gray-300 rounded px-3 py-2" type="password" id="password" wire:model="password" required>
+                </div>
+                <a class="text-blue-500 hover:underline" href="{{ route('cadastro') }}">Cadastro</a>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" type="submit">Login</button>
+
+            </form>
         </div>
         HTML;
     }
