@@ -11,6 +11,7 @@
 </head>
 
 <body class="bg-gray-100">
+    <livewire:low-stock-alerts />
 
     @auth
         <nav class="bg-white shadow p-4 flex justify-between">
@@ -19,8 +20,8 @@
 
                 <nav class="hidden md:flex items-center gap-4">
                     <a href="{{ route('products') }}"
-                       class="{{ request()->is('products*') ? 'text-blue-600 font-semibold' : 'text-gray-700' }} hover:underline">
-                       Produtos
+                        class="{{ request()->is('products*') ? 'text-blue-600 font-semibold' : 'text-gray-700' }} hover:underline">
+                        Produtos
                     </a>
                 </nav>
 

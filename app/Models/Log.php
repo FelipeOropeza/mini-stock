@@ -15,6 +15,16 @@ class Log extends Model
         'details',
     ];
 
+    public static function write($userId, $action, $details = null)
+    {
+        return self::create([
+            'user_id' => $userId,
+            'action' => $action,
+            'details' => $details,
+        ]);
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
