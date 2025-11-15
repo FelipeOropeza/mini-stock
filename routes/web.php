@@ -13,6 +13,8 @@ Route::post('/reset-password', [PasswordResetController::class, 'updatePassword'
 
 Route::middleware('auth')->group(function () {
     Route::get('/painel', \App\Livewire\Painel::class)->name('painel');
+    Route::get('/products', \App\Livewire\Products::class)->name('products');
+    Route::get('/products/{product}/category', \App\Livewire\ProductCategory::class)->name('category');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

@@ -14,12 +14,27 @@
 
     @auth
         <nav class="bg-white shadow p-4 flex justify-between">
-            <div>
-                <h1 class="font-bold">Painel</h1>
+            <div class="flex items-center gap-6 w-full">
+                <a href="{{ url('/painel') }}" class="text-lg font-bold">Painel</a>
+
+                <nav class="hidden md:flex items-center gap-4">
+                    <a href="{{ route('products') }}"
+                       class="{{ request()->is('products*') ? 'text-blue-600 font-semibold' : 'text-gray-700' }} hover:underline">
+                       Produtos
+                    </a>
+                </nav>
+
+                <!-- Mobile menu -->
+                <details class="md:hidden">
+                    <summary class="cursor-pointer text-gray-700">Menu</summary>
+                    <div class="flex flex-col mt-2">
+                        <a href="{{ route('products') }}" class="py-1 text-gray-700 hover:underline">Produtos</a>
+                    </div>
+                </details>
             </div>
 
             <div class="flex items-center gap-4">
-                <span>Olá, {{ Auth::user()->name }}</span>
+                <span class="w-32">{{ Auth::user()->name }}</span>
 
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
