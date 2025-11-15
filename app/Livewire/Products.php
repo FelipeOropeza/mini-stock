@@ -82,6 +82,12 @@ class Products extends Component
         return redirect()->route('category', $productId);
     }
 
+    public function goToMovement($productId)
+    {
+        return redirect()->route('movement', $productId);
+    }
+
+
 
     public function edit($id)
     {

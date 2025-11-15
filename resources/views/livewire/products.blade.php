@@ -92,6 +92,12 @@
                                 Categoria
                             </button>
 
+                            <button wire:click="goToMovement({{ $product->id }})"
+                                class="px-3 py-1 bg-blue-600 text-white rounded">
+                                Movimentar
+                            </button>
+
+
                             <button wire:click="edit({{ $product->id }})"
                                 class="px-3 py-1 bg-yellow-500 text-white rounded">
                                 Editar

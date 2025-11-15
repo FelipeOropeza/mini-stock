@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/painel', \App\Livewire\Painel::class)->name('painel');
     Route::get('/products', \App\Livewire\Products::class)->name('products');
     Route::get('/products/{product}/category', \App\Livewire\ProductCategory::class)->name('category');
+    Route::get('/estoque/movimentar/{product}', \App\Livewire\MovementForm::class)->name('movement');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
