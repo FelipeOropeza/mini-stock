@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Title;
 use Livewire\Component;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
@@ -15,7 +15,17 @@ class Login extends Component
 
     public function login()
     {
+        $credentials = [
+            'email' => $this->email,
+            'password' => $this->password,
+        ];
 
+        if (Auth::attempt($credentials)) {
+            $this->reset(['email', 'password']);
+            return redirect()->route('painel');
+        } else {
+            dd('Credenciais inválidas.');
+        }
     }
 
     public function render()
