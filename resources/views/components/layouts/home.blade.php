@@ -23,6 +23,10 @@
                         class="{{ request()->is('products*') ? 'text-blue-600 font-semibold' : 'text-gray-700' }} hover:underline">
                         Produtos
                     </a>
+                    <a href="{{ route('reports.movements.form') }}"
+                        class="{{ request()->is('reports/movements*') ? 'text-blue-600 font-semibold' : 'text-gray-700' }} hover:underline">
+                        Relatório de Movimentações
+                    </a>
                 </nav>
 
                 <!-- Mobile menu -->
